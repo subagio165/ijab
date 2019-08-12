@@ -101,9 +101,6 @@ def new_post():
         return redirect(url_for('home'))
     return render_template('isi_konten.html', title='isi konten', form=form)
 
-
-
-
 @app.route('/log', methods=['GET', 'POST'])
 @login_required
 def log():
