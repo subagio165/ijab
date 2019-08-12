@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <table border="1">
+        {% for his in his %}
+        <tr>
+            <td> {{ his.id}} </td>
+            <td> {{ his.aksi}} </td>
+            <td> {{ his.tanggal}} </td>
+            <td> {{ his.user_id}} </td>
+            <td> {{ his.user_ip}} </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>isi konten</h1>
+
+<div class="content-section">
+	<form action="/new_post" method="POST">
+		{{form.hidden_tag()}}
+		<fieldset class="form-group">
+			<legend>isi</legend>
+			<div>
+				{{form.isi.label}}
+				{{form.isi}}
+			</div>
+		</fieldset>
+		<div class="form-group">
+			{{form.submit}}
+		</div>
+	</form>
+</div>
+
+
+{% endblock %}

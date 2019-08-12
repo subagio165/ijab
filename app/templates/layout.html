@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% if title %}
+        <title>ijaqobul {{ title }}</title>
+    {% else %}
+        <title> ijabqobul </title>
+    {% endif %}
+</head>
+<body>
+    <nav>
+        {% if current_user.is_authenticated %}
+            <li><a href="/"> Home </a></li>
+		    <li><a href="/new_post"> Isi Konten </a></li>
+			<li> {{current_user.username}} <a href="{{url_for('logout')}}"> Logout </a></li>
+		{% else %}
+			<li><a href="{{url_for('home')}}"> Home </a></li>
+			<li><a href="{{url_for('regis')}}"> registrasi </a></li>
+			<li><a href="{{url_for('login')}}"> Login </a></li>
+		{% endif %}
+    </nav>
+
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>
